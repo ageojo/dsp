@@ -49,7 +49,7 @@ However, this is completely optional as Anaconda is an all-in-one package manage
 
 Did you install Python 2 or 3? Why?  
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+I have Python 2 and 3 installed (via pyen)v but Python 3 is global. I switched from Python 2.7.12 to Python 3 a while ago but still have code that will only run in Python 2. 
 
 ### Q2. Which Python Version Installed   
 
@@ -57,8 +57,7 @@ In the Terminal:
 
 `python3 --version`
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
-
+Python 3.6.2
  
 
 
