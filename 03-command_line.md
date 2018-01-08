@@ -48,10 +48,9 @@ Make a cheat sheet for yourself: a list of at least **ten** commands and what th
 - use `cp` with a new file name to copy the contents of one file into a new file with a different name within the same directory (note: this will override file contents): ```cp file1.txt file2.txt```
 
 
-Additional:
+#### Print / Save Text
 
-1. `echo`:
-- prints what follows to the `stdout`
+1) `echo` prints what follows to the `stdout`
 
 ```bash
 $ echo "hello world"
@@ -60,41 +59,66 @@ $ echo "hello world"
 $ echo file.txt
 file.txt
 ```
-- also returns values of environment variables: 
+
+Can also use echo to get the value of environment variables: 
+
 ```bash
-echo $PATH
+$ echo $PATH
 ~/metis/metishgh/prework/dsp
+
 ``` 
 
-2. use double carets to (`>>`) to redirect output of `echo` or a different process to file
+2) Direct output to a file using a single caret (`>`) or append to end of a file using double carets to (`>>`). If the file does not exist, it will be created. 
+- this can be used for text typed directly in terminal using `echo` or for the output of a different process
+
 ```bash
-echo "hello world" >> hello_world.txt
-ls >> files_in_directory.txt
+$ echo "hello" > hello_world.txt
+$ echo "word" >> hello_world.txt
+
+$ ls >> files_in_directory.txt
 ```
 
-3. ```du -sh *```: display list of files and (sub)directories in current directory and memory usage  in human readable form 
+3) `cat` : concatenate and print files; this will read in however many files are passed as arguments and print them to standard output or to file if specified
 
-4. chain commands using pipe (`|`);
-example: sort output of above command in reverse numerical order: ```du -sh * | sort -nr```
+- ```console $ cat file1``` prints contents of file1 to standard out
+- ```console $ cat file1 file2 > file3``` prints contents of file1 and file2 sequentially to file3, truncating file3 if it already exists.
 
-5. list files and memory used in human readable form for files and top-level directories, including hidden directories and files (here output is sorted & redirected to a text file):
+- the following would print "hello" followed by "world" (words on the first and second line of file *hello_world.txt* above)
+
+```bash
+$ cat hello_world.txt
+hello
+world
+```
+
+#### Find files
+
+4) ```du -sh *```: display list of files and (sub)directories in current directory and memory usage  in human readable form 
+
+
+5) list files and memory used in human readable form for files and top-level directories, including hidden directories and files (here output is sorted & redirected to a text file):
  ```du -sh .[!.]* * | sort -nr >> ~/virtualenv_space.txt```
 
-8. ```locate -i *red*house**city*``` : locate a file with "Red", "House" and "City"; `-i` flag means case-insensitive search; asterisk is a wilcard (matches anything); thus, this command will pull any and all files containing search criteria)
+6) ```locate -i *red*house**city*``` : locate a file with "Red", "House" and "City"; `-i` flag means case-insensitive search; asterisk is a wilcard (matches anything); thus, this command will pull any and all files containing search criteria)
 
 [important_linux_commands](http://www.informit.com/blogs/blog.aspx?uk=The-10-Most-Important-Linux-Commands)
 
-9. `ps`: process status; information about all processes with controlling terminals
 
-10. Get Help! 
+#### Other: 
+7. chain commands using pipe (`|`);
+example: sort output of above command in reverse numerical order: ```du -sh * | sort -nr```
 
-- `info` followed by a command name, will open the BSD manual page describing the command and its options
+8. `ps`: process status; information about all processes with controlling terminals
 
-- `man info`: this brings up the manual page for the command info (or whichever follows); `man command` provides a brief overview of the command including it's name, synopsis, description, and options 
+#### Get Help! 
 
-- `man -k cd` or `apropos keyword` or `whatis keyword`:  searches the whatis database for strings, specifically database files with short descriptions of system commands for keywords and displays results on `stdout`
+9. `info` followed by a command name, will open the BSD manual page describing the command and its options
 
-- `howdoi`: use with natural language to ask how to perform certain tasks
+10. `man info`: this brings up the manual page for the command info (or whichever follows); `man command` provides a brief overview of the command including it's name, synopsis, description, and options 
+
+11. `man -k cd` or `apropos keyword` or `whatis keyword`:  searches the whatis database for strings, specifically database files with short descriptions of system commands for keywords and displays results on `stdout`
+
+12. `howdoi`: use with natural language to ask how to perform certain tasks
 for example, the following brings up the postgresql database configuration file:
 
 ```bash
@@ -103,15 +127,17 @@ pg_hba.conf
 
 ```
 
-- `help alias` : help followed by the name of a command will print to `stdout` a very brief description of the command and its usage
+13. `help locate` : help followed by the name of a command will print to `stdout` a very brief description of the command and its usage
 
-- `alias p` : to list all aliases, or shortcuts available'; for instance, `ls`='`ls -G` by default
+14 `alias p` : to list all aliases, or shortcuts available'; for instance, `ls`='`ls -G` by default
 
-` set alias 
+15. to create new aliases in bash that are set each time, add to `~/.bash_profile`:
 
-- `grep` : search input files and selects lines matching one or more basic regular expressions (examples from `info grep`)
+```console $ alias cm='git commit -m'```
 
-- To find all occurrences of the word `patricia' in a file
+16. `grep` : search input files and selects lines matching one or more basic regular expressions (examples from `info grep`)
+
+- To find all o ccurrences of the word `patricia' in a file
 - To find all occurrences of the pattern `.Pp' at the beginning of a line
 
 
@@ -121,15 +147,16 @@ $ grep '^\.Pp' myfile
 
 ```
 
-## To Addd: 
--  aux 
-
--  to append content to the end of an existing file: 
-
--  change file or directory permissions using `chown`
 
 
----
+## TO DO: - AG 
+15.  ```console $ aux ```
+
+
+
+16.  change file or directory permissions using `chown`
+
+
 
 ### Q2.  List Files in Unix   
 
